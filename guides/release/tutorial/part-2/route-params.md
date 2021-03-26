@@ -137,6 +137,7 @@ module('Integration | Component | rental', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders information about a rental property', async function (assert) {
+    this.owner.setupRouter();
     this.setProperties({
       rental: {
         id: 'grand-old-mansion',
@@ -156,6 +157,7 @@ module('Integration | Component | rental', function (hooks) {
           'This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests.',
       },
     });
+    
 
     await render(hbs`<Rental @rental={{this.rental}} />`);
 
